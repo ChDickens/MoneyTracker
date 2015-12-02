@@ -69,4 +69,10 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         Log.d(LOG_TAG,"onStart()");
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(LOG_TAG, "onPause()");
+    }
 }
