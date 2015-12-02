@@ -77,4 +77,10 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         Log.d(LOG_TAG, "onPause()");
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(LOG_TAG, "onDestroy()");
+    }
 }
