@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private ActionBar actionBar;
     private Fragment fragment;
     private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+
 
 
 
@@ -65,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         if (id == android.R.id.home) {
-            drawerLayout.openDrawer(GravityCompat.START );
+            drawerLayout.openDrawer(GravityCompat.START);
             return true;
 
         }
@@ -84,17 +86,37 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
+
+        int itemId;
+        if (drawerLayout.isDrawerOpen(navigationView)) {
+            drawerLayout.closeDrawers();
+            return;
+
+        }
         super.onBackPressed();
         Fragment findingFragment = getSupportFragmentManager().findFragmentById(R.id.main_container);
-        if(findingFragment != null && findingFragment instanceof ExpensesFragment) {
-            getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-        }
+        if (findingFragment != null) {
+            itemId = R.id.drawer_expenses;
+
+            if(findingFragment instanceof ExpensesFragment){
+                getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                itemId = R.id.drawer_expenses;
+            } else if (findingFragment instanceof CategoriesFragment) {
+                itemId = R.id.drawer_categories;
+            } else if (findingFragment instanceof StatisticsFragment){
+                itemId = R.id.drawer_statistics;
+            } else if (findingFragment instanceof SettingsFragment){
+                itemId = R.id.drawer_settings;
+            }
+        navigationView.getMenu().findItem(itemId).setChecked(true);
+
+    }
     }
 
     private void setupDrawer() {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        NavigationView view = (NavigationView) findViewById(R.id.navigation_view);
-        view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
 
