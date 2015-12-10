@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/text_size"
-        android:text="Sum"
+        android:text=""
         android:gravity="center"/>
 
     <TextView
@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="right"
-        android:text="@string/list_date"
+        android:text=""
         android:textSize="@dimen/text_size"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"/>

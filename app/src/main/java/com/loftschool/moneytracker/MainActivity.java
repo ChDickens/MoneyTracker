@@ -97,14 +97,22 @@ public class MainActivity extends AppCompatActivity {
         view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                if (menuItem.getItemId() == R.id.drawer_expenses) {
-                    fragment = new ExpensesFragment();
 
-                } else {
-                    fragment = new OtherFragment();
+                switch (menuItem.getItemId()) {
+                    case R.id.drawer_expenses:
+                        fragment = new ExpensesFragment();
+                        break;
+                    case R.id.drawer_categories:
+                        fragment = new CategoriesFragment();
+                        break;
+                    case R.id.drawer_settings:
+                       fragment = new SettingsFragment();
+                        break;
+                    case R.id.drawer_statistics:
+                        fragment = new StatisticsFragment();
+                        break;
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_container, fragment).addToBackStack(null).commit();
-
                 menuItem.setChecked(true);
                 drawerLayout.closeDrawers();
                 return false;

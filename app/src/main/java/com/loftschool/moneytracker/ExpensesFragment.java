@@ -27,7 +27,7 @@ public class ExpensesFragment extends Fragment {
         List<Expense> AdapterData = getDataList();
         expensesAdapter = new ExpensesAdapter(getActivity(), AdapterData);
         expensesListView.setAdapter(expensesAdapter);
-        getActivity().setTitle("Траты");
+        getActivity().setTitle(R.string.nav_drawer_expenses);
 
         return mainView;
     }
