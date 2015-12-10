@@ -28,9 +28,11 @@ public class ExpensesAdapter extends ArrayAdapter<Expense> {
         }
         TextView name = (TextView) convertView.findViewById(R.id.name_text);
         TextView sum =(TextView) convertView.findViewById(R.id.sum_text);
+        TextView date = (TextView) convertView.findViewById(R.id.date_text);
 
         name.setText(expense.title);
         sum.setText(expense.getSumStr());
+        date.setText(expense.getDateStr());
 
         return convertView;
     }

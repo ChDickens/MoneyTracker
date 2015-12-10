@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -31,10 +33,11 @@ public class ExpensesFragment extends Fragment {
     }
     private List<Expense> getDataList(){
         List<Expense> data = new ArrayList<>();
-        data.add(new Expense("Telephone", 1000));
-        data.add(new Expense("Clothes", 2000));
-        data.add(new Expense("Flat", 500));
-        data.add(new Expense("PC", 750));
+        long time = Calendar.getInstance().getTimeInMillis();
+        data.add(new Expense("Telephone", 1000, new Date(time)));
+        data.add(new Expense("Clothes", 2000, new Date(time)));
+        data.add(new Expense("Flat", 500, new Date(time)));
+        data.add(new Expense("PC", 750, new Date(time)));
 
 
         return data;
