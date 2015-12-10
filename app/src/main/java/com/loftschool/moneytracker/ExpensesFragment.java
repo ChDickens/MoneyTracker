@@ -31,10 +31,11 @@ public class ExpensesFragment extends Fragment {
     }
     private List<Expense> getDataList(){
         List<Expense> data = new ArrayList<>();
-        data.add(new Expense("Telephone", "1000"));
-        data.add(new Expense("Clothes", "2000"));
-        data.add(new Expense("Flat", "500"));
-        data.add(new Expense("PC", "750"));
+        data.add(new Expense("Telephone", 1000));
+        data.add(new Expense("Clothes", 2000));
+        data.add(new Expense("Flat", 500));
+        data.add(new Expense("PC", 750));
+
 
         return data;
 
