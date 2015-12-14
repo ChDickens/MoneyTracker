@@ -62,6 +62,26 @@ public class ExpensesFragment extends Fragment {
         data.add(new Expense("Clothes", 2000, new Date(time)));
         data.add(new Expense("Flat", 500, new Date(time)));
         data.add(new Expense("PC", 750, new Date(time)));
+        data.add(new Expense("Telephone", 1000, new Date(time)));
+        data.add(new Expense("Clothes", 2000, new Date(time)));
+        data.add(new Expense("Flat", 500, new Date(time)));
+        data.add(new Expense("PC", 750, new Date(time)));
+        data.add(new Expense("Telephone", 1000, new Date(time)));
+        data.add(new Expense("Clothes", 2000, new Date(time)));
+        data.add(new Expense("Flat", 500, new Date(time)));
+        data.add(new Expense("PC", 750, new Date(time)));
+        data.add(new Expense("Telephone", 1000, new Date(time)));
+        data.add(new Expense("Clothes", 2000, new Date(time)));
+        data.add(new Expense("Flat", 500, new Date(time)));
+        data.add(new Expense("PC", 750, new Date(time)));
+        data.add(new Expense("Telephone", 1000, new Date(time)));
+        data.add(new Expense("Clothes", 2000, new Date(time)));
+        data.add(new Expense("Flat", 500, new Date(time)));
+        data.add(new Expense("PC", 750, new Date(time)));
+        data.add(new Expense("Telephone", 1000, new Date(time)));
+        data.add(new Expense("Clothes", 2000, new Date(time)));
+        data.add(new Expense("Flat", 500, new Date(time)));
+        data.add(new Expense("PC", 750, new Date(time)));
 
 
         return data;

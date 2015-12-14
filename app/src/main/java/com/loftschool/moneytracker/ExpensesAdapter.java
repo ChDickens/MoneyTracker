@@ -33,7 +33,7 @@ public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.CardVi
         Expense expense = expenses.get(position);
 
         holder.name_text.setText(expense.title);
-        holder.sum_text.setText(expense.sum);
+        holder.sum_text.setText(expense.getSumStr());
         holder.date_text.setText(expense.getDateStr());
     }
 
