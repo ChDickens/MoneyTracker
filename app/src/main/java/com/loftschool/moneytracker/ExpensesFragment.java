@@ -1,8 +1,13 @@
 package com.loftschool.moneytracker;
 
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,12 +26,27 @@ public class ExpensesFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View mainView = inflater.inflate(R.layout.expenses_fragment, container, false);
+        final View mainView = inflater.inflate(R.layout.expenses_fragment, container, false);
 
-        ListView expensesListView = (ListView) mainView.findViewById(R.id.list_view);
+        RecyclerView expensesRecyclerView = (RecyclerView) mainView.findViewById(R.id.context_recycler_view);
         List<Expense> AdapterData = getDataList();
-        expensesAdapter = new ExpensesAdapter(getActivity(), AdapterData);
-        expensesListView.setAdapter(expensesAdapter);
+        expensesAdapter = new ExpensesAdapter(AdapterData);
+        expensesRecyclerView.setAdapter(expensesAdapter);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        expensesRecyclerView.setLayoutManager(gridLayoutManager);
+
+        FloatingActionButton floatingActionButton = (FloatingActionButton) mainView.findViewById(R.id.fab);
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(mainView, "Nice", Snackbar.LENGTH_SHORT).show();
+            }
+        });
+
+
         getActivity().setTitle(R.string.nav_drawer_expenses);
 
         return mainView;
