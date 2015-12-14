@@ -2,7 +2,7 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/Container.DarkBackground"
+    style="@style/Container.MainBackground"
     android:id="@+id/main_content">
 
     <android.support.v7.widget.RecyclerView
