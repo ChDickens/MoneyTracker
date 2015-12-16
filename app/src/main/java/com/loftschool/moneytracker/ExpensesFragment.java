@@ -33,11 +33,7 @@ public class ExpensesFragment extends Fragment {
         expensesAdapter = new ExpensesAdapter(AdapterData);
         expensesRecyclerView.setAdapter(expensesAdapter);
 
-        // GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
-        // gridLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        // expensesRecyclerView.setLayoutManager(gridLayoutManager);
-
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager((getActivity()));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         expensesRecyclerView.setLayoutManager(linearLayoutManager);
 

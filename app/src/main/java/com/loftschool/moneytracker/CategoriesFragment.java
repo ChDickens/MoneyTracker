@@ -32,9 +32,9 @@ public class CategoriesFragment extends Fragment {
         CategoriesAdapter categoriesAdapter = new CategoriesAdapter(adapterList);
         categoriesRecyclerView.setAdapter(categoriesAdapter);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
-        gridLayoutManager.setOrientation(GridLayoutManager.VERTICAL);
-        categoriesRecyclerView.setLayoutManager(gridLayoutManager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        categoriesRecyclerView.setLayoutManager(linearLayoutManager);
 
         FloatingActionButton floatingActionButton = (FloatingActionButton) mainView.findViewById(R.id.fab);
 
