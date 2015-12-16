@@ -2,6 +2,7 @@ package com.loftschool.moneytracker;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,32 +16,40 @@ import java.util.Random;
 /**
  * Created by Alexey on 10.12.2015.
  */
-public class CategoriesAdapter extends ArrayAdapter {
+public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CardViewHolder> {
 
     List<Category> categories;
-    public CategoriesAdapter(Context context, List<Category> categories)  {
-        super(context, 0, categories);
+    public CategoriesAdapter (List<Category> categories) {
         this.categories = categories;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        Category category = (Category)getItem(position);
-        Random rnd = new Random();
-        int bgColor;
+    public CardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item, parent, false);
+        return new CardViewHolder(convertView);
+    }
 
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+    @Override
+    public void onBindViewHolder(CardViewHolder holder, int position) {
+        Category category = categories.get(position);
+
+        holder.name_text.setText(category.title);
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return categories.size();
+    }
+
+    public class CardViewHolder extends RecyclerView.ViewHolder {
+        protected TextView name_text;
+
+
+        public CardViewHolder(View convertView) {
+            super(convertView);
+            name_text = (TextView) convertView.findViewById(R.id.name_text);
+
         }
-        RelativeLayout field = (RelativeLayout) convertView.findViewById(R.id.field_item);
-
-        bgColor = Color.argb(60, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-        field.setBackgroundColor(bgColor);
-
-        TextView name = (TextView) convertView.findViewById(R.id.name_text);
-
-        name.setText(category.getTitle());
-
-        return convertView;
     }
 }
